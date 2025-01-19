@@ -1,0 +1,14 @@
+# IDEs
+.vs/
+.idea/
+
+# Build Artifacts
+bin/
+obj/
+*.dll
+*.exe
+
+# Trash
+/packages/
+riderModule.iml
+/_ReSharper.Caches/

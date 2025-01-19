@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NibblePoker.Flemmotron.TestLib", "NibblePoker.Flemmotron.TestLib\NibblePoker.Flemmotron.TestLib.csproj", "{B72FCF67-410C-4AB9-93EB-138AA997025E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NibblePoker.Flemmotron.Commons", "NibblePoker.Flemmotron.Commons\NibblePoker.Flemmotron.Commons.csproj", "{9B454754-933F-49E3-9EA1-A161CDEB02D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NibblePoker.Win32Bindings", "NibblePoker.Win32Bindings\NibblePoker.Win32Bindings.csproj", "{D59AA77B-F9F4-4EE7-857C-C0B95489655B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NibblePoker.Win32Wrappers", "NibblePoker.Win32Wrappers\NibblePoker.Win32Wrappers.csproj", "{FDA327CC-C600-4CCB-B3D9-2585B1C7C5E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{EA368610-B371-40AF-98C6-3AFB46D7209E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B72FCF67-410C-4AB9-93EB-138AA997025E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72FCF67-410C-4AB9-93EB-138AA997025E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72FCF67-410C-4AB9-93EB-138AA997025E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72FCF67-410C-4AB9-93EB-138AA997025E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B454754-933F-49E3-9EA1-A161CDEB02D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B454754-933F-49E3-9EA1-A161CDEB02D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B454754-933F-49E3-9EA1-A161CDEB02D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B454754-933F-49E3-9EA1-A161CDEB02D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D59AA77B-F9F4-4EE7-857C-C0B95489655B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D59AA77B-F9F4-4EE7-857C-C0B95489655B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D59AA77B-F9F4-4EE7-857C-C0B95489655B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D59AA77B-F9F4-4EE7-857C-C0B95489655B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA327CC-C600-4CCB-B3D9-2585B1C7C5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA327CC-C600-4CCB-B3D9-2585B1C7C5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA327CC-C600-4CCB-B3D9-2585B1C7C5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA327CC-C600-4CCB-B3D9-2585B1C7C5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA368610-B371-40AF-98C6-3AFB46D7209E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA368610-B371-40AF-98C6-3AFB46D7209E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA368610-B371-40AF-98C6-3AFB46D7209E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA368610-B371-40AF-98C6-3AFB46D7209E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
