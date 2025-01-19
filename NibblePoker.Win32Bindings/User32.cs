@@ -1,10 +1,26 @@
 ﻿using System.Runtime.InteropServices;
 
+using static NibblePoker.Win32Bindings.WinDef;
+
 namespace NibblePoker.Win32Bindings;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMember.Global
 public class User32 {
+    // https://learn.microsoft.com/en-us/windows/win32/winprog/windows-data-types
+
+
+    /// https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-paintstruct
+    [StructLayout(LayoutKind.Sequential)]
+    public struct PAINTSTRUCT {
+        public IntPtr hdc; // HDC
+        public bool fErase; // BOOL
+        public RECT rcPaint;
+        public bool fRestore; // BOOL
+        public bool fIncUpdate; // BOOL
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        public byte[] dwExtraInfo; // BYTE[32]
+    }
     
     #region MB_* flags
 
@@ -16,7 +32,7 @@ public class User32 {
     public const uint MB_RETRYCANCEL = 0x00000005;
     public const uint MB_YESNO = 0x00000004;
     public const uint MB_YESNOCANCEL = 0x00000003;
-    
+
     public const uint MB_ICONEXCLAMATION = 0x00000030;
     public const uint MB_ICONWARNING = 0x00000030;
     public const uint MB_ICONINFORMATION = 0x00000040;
@@ -25,23 +41,23 @@ public class User32 {
     public const uint MB_ICONSTOP = 0x00000010;
     public const uint MB_ICONERROR = 0x00000010;
     public const uint MB_ICONHAND = 0x00000010;
-    
+
     public const uint MB_DEFBUTTON1 = 0x00000000;
     public const uint MB_DEFBUTTON2 = 0x00000100;
     public const uint MB_DEFBUTTON3 = 0x00000200;
     public const uint MB_DEFBUTTON4 = 0x00000300;
-    
+
     public const uint MB_APPLMODAL = 0x00000000;
     public const uint MB_SYSTEMMODAL = 0x00001000;
     public const uint MB_TASKMODAL = 0x00002000;
-    
+
     public const uint MB_DEFAULT_DESKTOP_ONLY = 0x00020000;
     public const uint MB_RIGHT = 0x00080000;
     public const uint MB_RTLREADING = 0x00100000;
     public const uint MB_SETFOREGROUND = 0x00010000;
     public const uint MB_TOPMOST = 0x00040000;
     public const uint MB_SERVICE_NOTIFICATION = 0x00200000;
-    
+
     /// <summary>
     /// Used by <see cref="MessageBeep"/> for the sound type that is propagated to <see cref="Kernel32.Beep"/> internally.
     /// </summary>
@@ -64,11 +80,36 @@ public class User32 {
 
     #endregion
     
+    /// https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-beginpaint
+    [DllImport("user32.dll", CharSet = CharSet.None, SetLastError = false)]
+    [return: MarshalAs(UnmanagedType.SysInt)]
+    public static extern IntPtr BeginPaint([In] IntPtr hWnd, [Out] out PAINTSTRUCT lpPaint);
+
+    // ChangeDisplaySettingsA
+    // ChangeDisplaySettingsExA
+    // ChangeDisplaySettingsExW
+    // ChangeDisplaySettingsW
+    
+    /// https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-clienttoscreen
+    [DllImport("user32.dll", CharSet = CharSet.None, SetLastError = false)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool ClientToScreen(IntPtr hWnd, [In, Out] ref POINT lpPoint);
+    
+    // CopyRect
+    // DrawAnimatedRects
+    
+    /// ...
+    
+    /// https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-endpaint
+    [DllImport("user32.dll", CharSet = CharSet.None, SetLastError = false)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool EndPaint([In] IntPtr hWnd, [In] ref PAINTSTRUCT lpPaint);
+    
     /// https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebeep
     [DllImport("user32.dll", CharSet = CharSet.None, SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool MessageBeep(uint uType);
-    
+
     [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
     [return: MarshalAs(UnmanagedType.I4)]
     public static extern int MessageBoxA(IntPtr hWnd, nint lpText, nint lpCaption, uint uType);
@@ -76,11 +117,10 @@ public class User32 {
     [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
     [return: MarshalAs(UnmanagedType.I4)]
     public static extern int MessageBoxW(IntPtr hWnd, nint lpText, nint lpCaption, uint uType);
-    
+
     //[DllImport("user32.dll")]
     //public static extern int GetClassName(int hWnd, StringBuilder lpString, int nMaxCount);
 
     //[DllImport("user32")]
     //public static extern int GetWindowText(int hwnd, StringBuilder lptrString, int nMaxCount);
-    
 }
