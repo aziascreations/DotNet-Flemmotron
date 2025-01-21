@@ -1,8 +1,6 @@
-﻿using System.Xml.Linq;
+﻿namespace NibblePoker.Flemmotron.Commons.Interfaces;
 
-namespace NibblePoker.Flemmotron.Commons.Interfaces;
-
-public interface IExecutor {
+public interface IExecutor<T> : ISerializable<T> {
 
     /*#region Properties
 
@@ -11,11 +9,5 @@ public interface IExecutor {
 
     #endregion*/
 
-    public IExecutor New();
-
-    public XElement Serialize();
-    
-    public static abstract IExecutor Deserialize(XElement rootElement);
-    
-    public static abstract string GetId();
+    public IExecutor<T> GetBlank();
 }

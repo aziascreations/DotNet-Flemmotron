@@ -1,6 +1,6 @@
 ﻿namespace NibblePoker.Flemmotron.Commons.Interfaces;
 
-public interface ILogicExecutor : IExecutor {
+public interface ILogicExecutor<T> : IExecutor<T> {
 
     //public List<IExecutor> GetChildren();
 
